@@ -1,0 +1,78 @@
+@keyframes adSectionIn {
+  0%   { opacity: 0; filter: blur(11px); transform: translateY(50px) scale(0.92);}
+  70%  { opacity: 0.82; filter: blur(2px); transform: translateY(-7px) scale(1.02);}
+  100% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1);}
+}
+
+@keyframes badgePop {
+  0%   { transform: scale(0.7) rotate(-13deg); opacity: 0.5;}
+  60%  { transform: scale(1.1) rotate(3deg);}
+  100% { transform: scale(1) rotate(0); opacity: 1;}
+}
+
+.app-download {
+  margin: 100px auto 0 auto;
+  font-size: max(3vw, 20px);
+  text-align: center;
+  font-weight: 600;
+  background: linear-gradient(104deg, #fffdfa 65%, #ffe7db 95%);
+  border-radius: 24px;
+  box-shadow: 0 4px 36px -18px #ff634713;
+  padding: 44px 3.5vw 36px 3.5vw;
+  max-width: 650px;
+  animation: adSectionIn 0.85s cubic-bezier(.43,1.31,.36,1.13) both;
+}
+
+.app-download p {
+  font-size: max(2.3vw, 22px);
+  color: #333;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 28px;
+  background: linear-gradient(87deg, #ff6347 30%, #ffa366 90%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.app-download-platforms {
+  display: flex;
+  justify-content: center;
+  gap: max(2.2vw, 18px);
+  margin-top: 36px;
+}
+
+.app-download-platforms img {
+  width: max(24vw, 130px);
+  max-width: 180px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 18px -5px #ff63474e;
+  transition:
+    box-shadow 0.49s cubic-bezier(.43,1.2,.42,1),
+    transform 0.42s cubic-bezier(.44,1.6,.32,1.07);
+  animation: badgePop 0.7s cubic-bezier(.61,1.17,.33,1.19) backwards;
+}
+
+.app-download-platforms img:nth-child(1) { animation-delay: 0.18s; }
+.app-download-platforms img:nth-child(2) { animation-delay: 0.34s; }
+
+.app-download-platforms img:hover {
+  transform: scale(1.09) rotate(-4deg);
+  box-shadow: 0 8px 36px -6px #ff634790;
+  background: #fff7f3;
+}
+
+@media (max-width: 700px) {
+  .app-download {
+    padding: 32px 2vw 20px 2vw;
+    max-width: 99vw;
+    font-size: 17px;
+    border-radius: 13px;
+  }
+  .app-download p { font-size: max(1.3vw, 15px);}
+  .app-download-platforms img {
+    width: 96px;
+    max-width: 130px;
+    border-radius: 11px;
+  }
+}

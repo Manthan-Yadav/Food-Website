@@ -1,0 +1,67 @@
+.food-display {
+  margin-top: 30px;
+  padding-bottom: 30px;
+  animation: fdSectionFade 0.7s cubic-bezier(.48,1.33,.32,1) both;
+}
+
+@keyframes fdSectionFade {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}
+
+.food-display h2 {
+  font-size: max(2.1vw, 28px);
+  background: linear-gradient(90deg, tomato 25%, #fbcb94 90%);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  animation: fdTitleIn 1s cubic-bezier(.55,1.25,.41,1.12) both;
+}
+
+@keyframes fdTitleIn {
+  0%   { opacity: 0; filter: blur(7px) brightness(.85); transform: scale(1.12) translateY(13px);}
+  100% { opacity: 1; filter: none; transform: scale(1) translateY(0);}
+}
+
+.food-display-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  margin-top: 30px;
+  gap: 30px;
+  row-gap: 50px;
+}
+
+.food-item {
+  opacity: 0;
+  transform: translateY(30px) scale(.98);
+  animation: fdCardEnter 0.85s cubic-bezier(.41,1.16,.36,1.17) forwards;
+  animation-delay: var(--fd-item-delay, 0ms);
+}
+
+@keyframes fdCardEnter {
+  0% {
+    opacity: 0;
+    filter: blur(11px);
+    transform: translateY(50px) scale(0.95);
+  }
+  70% {
+    opacity: 0.8;
+    filter: blur(1.7px);
+    transform: translateY(-6px) scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+}

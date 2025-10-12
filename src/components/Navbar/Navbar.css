@@ -1,0 +1,115 @@
+@keyframes navbarBounceIn {
+  0% { opacity: 0; transform: translateY(-40px) scale(0.98);}
+  60% { opacity: 1; transform: translateY(8px) scale(1.01);}
+  80% { transform: translateY(-2px) scale(0.99);}
+  100% { opacity: 1; transform: translateY(0) scale(1);}
+}
+@keyframes menuStagger {
+  to { opacity: 1; transform: translateY(0px);}
+}
+@keyframes cartDotPop {
+  0% { transform: scale(0.9); opacity: 0;}
+  70% { transform: scale(1.07); opacity: 1;}
+  100% { transform: scale(1); opacity: 1;}
+}
+
+.navbar {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: navbarBounceIn 1s cubic-bezier(.63,-0.52,.16,1.46);
+}
+
+.navbar .logo {
+  width: 100px;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  color: #49557e;
+  font-size: 18px;
+}
+
+.navbar-menu a {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: menuStagger 0.6s forwards;
+}
+.navbar-menu a:nth-child(1) { animation-delay: 0.3s; }
+.navbar-menu a:nth-child(2) { animation-delay: 0.45s; }
+.navbar-menu a:nth-child(3) { animation-delay: 0.6s; }
+.navbar-menu a:nth-child(4) { animation-delay: 0.75s; }
+
+
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar button {
+  background: transparent;
+  font-size: 16px;
+  color: #49557e;
+  border: 1px solid tomato;
+  padding: 10px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px 0 rgba(220,53,69,0.12);
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+.navbar button:hover {
+  background: tomato;
+  color: #fff;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(220,53,69,0.2);
+}
+
+.navbar .active {
+  padding-bottom: 2px;
+  border-bottom: 2px solid #49557e;
+}
+
+.navbar li {
+  cursor: pointer;
+}
+
+.navbar-search-icon {
+  position: relative;
+}
+
+.navbar-search-icon .dot {
+  position: absolute;
+  min-width: 10px;
+  min-height: 10px;
+  background: tomato;
+  border-radius: 5px;
+  top: -8px;
+  right: -8px;
+  animation: cartDotPop 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+}
+
+@media (max-width:1050px) {
+  .navbar .logo { width: 140px; }
+  .navbar-menu { gap: 20px; font-size: 17px; }
+  .navbar-right { gap: 30px; }
+  .navbar-right img { width: 22px; }
+  .navbar-right button { padding: 8px 25px; }
+}
+
+@media (max-width:900px) {
+  .navbar .logo { width: 70px; }
+  .navbar-menu { gap: 15px; font-size: 16px; }
+  .navbar-right { gap: 20px; }
+  .navbar-right img { width: 20px; }
+  .navbar-right button { padding: 7px 20px; font-size: 15px; }
+}
+
+@media (max-width:750px) {
+  .navbar-menu { display: none; }
+}

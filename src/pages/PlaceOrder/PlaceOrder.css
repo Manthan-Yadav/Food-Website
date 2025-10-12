@@ -1,0 +1,175 @@
+@keyframes poFadeIn {
+  from { opacity: 0; filter: blur(13px); transform: translateY(40px);}
+  to   { opacity: 1; filter: blur(0);   transform: translateY(0);}
+}
+@keyframes poSlideInLeft {
+  0%   { opacity: 0; transform: translateX(-48px) scale(0.97);}
+  80%  { opacity: 0.75; transform: translateX(16px) scale(1.02);}
+  100% { opacity: 1; transform: translateX(0) scale(1);}
+}
+@keyframes poSlideInRight {
+  0%   { opacity: 0; transform: translateX(40px) scale(0.97);}
+  80%  { opacity: 0.75; transform: translateX(-8px) scale(1.02);}
+  100% { opacity: 1; transform: translateX(0) scale(1);}
+}
+@keyframes poButtonPop {
+  0%   { transform: scale(0.86) translateY(20px);}
+  60%  { transform: scale(1.11) translateY(-8px);}
+  90%  { transform: scale(0.97) translateY(2px);}
+  100% { transform: scale(1) translateY(0);}
+}
+
+.place-order {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+  margin-top: 100px;
+  animation: poFadeIn 0.88s cubic-bezier(.48,1.25,.36,1.11) both;
+  min-height: 68vh;
+  background: linear-gradient(97deg, #fff6f2 80%, #ffeae1 130%);
+  border-radius: 14px;
+  box-shadow: 0 4px 44px -11px #ff634718;
+  padding: 32px 2vw 38px 2vw;
+}
+
+.place-order-left {
+  width: 100%;
+  max-width: max(30%, 500px);
+  animation: poSlideInLeft 1.1s cubic-bezier(.52,1.45,.49,1.18) .09s both;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 22px -8px #ffb78317;
+  padding: 36px 28px 21px 28px;
+}
+
+.place-order-left .title {
+  font-size: 29px;
+  font-weight: 700;
+  margin-bottom: 36px;
+  background: linear-gradient(98deg, #ff6347 60%, #ffa366 111%);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 1.2px;
+}
+
+.place-order-left input {
+  margin-bottom: 16px;
+  width: 100%;
+  padding: 12px;
+  border: 1.6px solid #ffe0d9;
+  border-radius: 5px;
+  outline-color: tomato;
+  background: #fffefa;
+  font-size: 16px;
+  transition: border-color 0.27s, box-shadow 0.23s;
+  color: #262626;
+  font-weight: 500;
+}
+.place-order-left input:focus {
+  border: 1.6px solid tomato;
+  box-shadow: 0 2px 15px -7px #ff634770;
+  background: #fff7f3;
+}
+
+.place-order-left .multi-fields {
+  display: flex;
+  gap: 10px;
+}
+.place-order-left .multi-fields input {
+  flex: 1 1 47%;
+}
+
+
+.place-order-right {
+  width: 100%;
+  max-width: max(40%, 500px);
+  animation: poSlideInRight .97s cubic-bezier(.43,1.33,.38,1.09) .23s both;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 22px -12px #ff634714;
+  padding: 42px 32px 25px 32px;
+  min-width: 310px;
+}
+
+.place-order .cart-total button {
+  margin-top: 31px;
+  border: none;
+  padding: 15px 0;
+  border-radius: 7px;
+  color: white;
+  background: linear-gradient(96deg, tomato 76%, #ffa366 160%);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 24px -12px #ff63474f;
+  letter-spacing: 1.6px;
+  transition: background 0.24s, box-shadow .22s, transform .22s;
+  animation: poButtonPop 0.73s cubic-bezier(.51,1.65,.47,1.01) 0.4s both;
+}
+.place-order .cart-total button:hover {
+  background: linear-gradient(88deg, #ffa366 24%, tomato 92%);
+  box-shadow: 0 16px 48px -14px #ff634776;
+  transform: scale(1.05) translateY(-3px);
+}
+
+.cart-total {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.cart-total h2 {
+  color: #ff6347;
+  font-weight: 700;
+  font-size: 25px;
+  margin-bottom: 14px;
+}
+
+.cart-total-details {
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.cart-total hr {
+  margin: 12px 0;
+  border: none;
+  border-top: 1.2px solid #ffece6;
+}
+
+
+@media (max-width: 950px) {
+  .place-order {
+    gap: 18px;
+    padding: 25px 0vw 19px 0vw;
+  }
+  .place-order-left,
+  .place-order-right {
+    min-width: unset;
+    max-width: 99%;
+    padding: 17px 8px 15px 8px;
+  }
+}
+@media (max-width: 750px) {
+  .place-order {
+    flex-direction: column;
+    gap: 22px;
+    padding: 10px 0 5vw 0;
+    margin-top: 46px;
+  }
+  .place-order-left,
+  .place-order-right {
+    box-shadow: none;
+    padding: 13px 3vw;
+    border-radius: 7px;
+  }
+  .place-order-left .title {
+    font-size: 20px;
+    margin-bottom: 22px;
+  }
+}
